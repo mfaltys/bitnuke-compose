@@ -1,0 +1,12 @@
+[bitnuke]
+	loglevel		= "debug"
+	port			= 8808
+	tokensize		= 6
+	sectokensize		= 25
+	linktokensize		= 4
+	ttl			= 12
+	tokendictionary 	= "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+	secdictionary		= "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+[redis]
+	host			= "redis:6379"
+	password		= ""

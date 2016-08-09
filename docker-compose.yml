@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+        redis:
+                build: ./redis
+                expose:
+                        - "6397"
+                network_mode: "bridge"
+        bitnuke:
+                build: ./bitnuke
+                depends_on:
+                        - redis
+                volumes:
+                        - ./bitnuke/config.gcfg:/config.gcfg:ro
+                expose:
+                        - "8808"
+                network_mode: "bridge"
+                links:
+                        - redis
+        nginx:
+                build: ./nginx
+                ports:
+                        - "8080:8080"
+                network_mode: "bridge"
+                links:
+                        - bitnuke
