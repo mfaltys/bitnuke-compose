@@ -1,7 +1,8 @@
-FROM alpine
-RUN apk add --update drill bash
+FROM scratch
+#FROM alpine
+#RUN apk add --update drill bash
 
-COPY bitnuke /
+COPY bitnuke* /bitnuke
 COPY config.gcfg /
 
 CMD ["/bitnuke"]
