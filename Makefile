@@ -1,6 +1,6 @@
-IMAGE_NAME_BITNUKE=bitnuke
-IMAGE_NAME_NGINX=nginx
-IMAGE_NAME_REDIS=redis
+IMAGE_NAME_BITNUKE=unixvoid/bitnuke
+IMAGE_NAME_NGINX=unixvoid/nginx
+IMAGE_NAME_REDIS=unixvoid/redis
 DOCKER_OPTIONS="--no-cache"
 DOCKER_PREFIX=sudo
 
