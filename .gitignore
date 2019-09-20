@@ -1,2 +1,4 @@
 bitnuke/bitnuke*
 redis/rootfs.tar.gz
+nginx/data/
+nginx/bitnuke/

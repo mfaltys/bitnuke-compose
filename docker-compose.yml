@@ -1,33 +1,22 @@
-version: '2'
+version: '3'
 
 services:
-        nginx:
-                #build: ./nginx
-                image: unixvoid/nginx
-                volumes:
-                        - ./nginx/conf:/cryo/conf:ro
-                        - ./nginx/data:/cryo/data:ro
-                        - /tmp/redis:/redisbackup:rw
-                ports:
-                        - "8080:8080"
-                network_mode: "bridge"
-                links:
-                        - bitnuke
-        redis:
-                #build: ./redis
-                image: unixvoid/redis
-                expose:
-                        - "6397"
-                network_mode: "bridge"
-        bitnuke:
-                #build: ./bitnuke
-                image: unixvoid/bitnuke
-                depends_on:
-                        - redis
-                volumes:
-                        - ./bitnuke/config.gcfg:/config.gcfg:ro
-                expose:
-                        - "8808"
-                network_mode: "bridge"
-                links:
-                        - redis
+  nginx:
+    image: unixvoid/nginx
+    volumes:
+      - ./nginx/conf/nginx.conf:/nginx/nginx.conf:ro
+      - ./nginx/conf/mime.types:/nginx/mime.types:ro
+      - ./nginx/data:/nginx/data:ro
+      - /tmp/redis:/redisbackup:rw
+    ports:
+      - "8080:8080"
+    depends_on:
+      - bitnuke
+  redis:
+    image: unixvoid/redis
+  bitnuke:
+    image: unixvoid/bitnuke
+    depends_on:
+      - redis
+    volumes:
+      - ./bitnuke/config.gcfg:/config.gcfg:ro
